@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2485e44-beb7-4faa-aabd-c301b8dd242e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Models/BookModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Models/LibrarianModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Models/StudentModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Models/UserModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,18 +39,19 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/esman/OneDrive/Documents/3.sınıf Ders Dökümanları/Yazılım Mimarisi ve Tasarımı/University-Library-Management-System",
+    "last_opened_file_path": "C:/Users/esman/Downloads/mysql-connector-j-9.1.0.zip",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/esman/OneDrive/Documents/3.sınıf Ders Dökümanları/Yazılım Mimarisi ve Tasarımı/University-Library-Management-System/src/Main.java",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -69,22 +67,12 @@
       <updated>1732564384284</updated>
       <workItem from="1732564385595" duration="659000" />
       <workItem from="1732698824345" duration="59000" />
-      <workItem from="1733243097800" duration="2257000" />
+      <workItem from="1733243097800" duration="2566000" />
+      <workItem from="1733254871211" duration="1295000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
