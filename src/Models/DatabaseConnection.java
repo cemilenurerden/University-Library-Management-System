@@ -1,4 +1,4 @@
-package Model;
+package Models;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -50,4 +50,5 @@ public class DatabaseConnection {
             throw new RuntimeException(e);
         }
     }
+
 }

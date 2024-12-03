@@ -5,8 +5,8 @@ import Models.StudentModel;
 public class Main {
     public static void main(String[] args) {
 
-        StudentModel student = new StudentModel("esma", "123456")  ;
-        student.yaz();
+        StudentModel student = new StudentModel("esma","gk","1225555","esma@gmail","123545")  ;
+        student.Register();
 
     }
 }
