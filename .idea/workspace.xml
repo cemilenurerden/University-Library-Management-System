@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2485e44-beb7-4faa-aabd-c301b8dd242e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/University-Library-Management-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/University-Library-Management-System.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/LibrarianModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/LibrarianModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/StudentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/StudentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/BookModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/UserModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,26 +40,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/esman/Downloads/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/esman/OneDrive/Documents/3.sınıf Ders Dökümanları/Yazılım Mimarisi ve Tasarımı/University-Library-Management-System/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/esman/Downloads/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/esman/OneDrive/Documents/3.sınıf Ders Dökümanları/Yazılım Mimarisi ve Tasarımı/University-Library-Management-System/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\esman\OneDrive\Documents\3.sınıf Ders Dökümanları\Yazılım Mimarisi ve Tasarımı\University-Library-Management-System" />
@@ -78,7 +76,9 @@
       <workItem from="1732564385595" duration="659000" />
       <workItem from="1732698824345" duration="59000" />
       <workItem from="1733243097800" duration="2566000" />
-      <workItem from="1733254871211" duration="5470000" />
+      <workItem from="1733254871211" duration="5671000" />
+      <workItem from="1733306526028" duration="614000" />
+      <workItem from="1733324835908" duration="3060000" />
     </task>
     <servers />
   </component>

@@ -51,10 +51,29 @@ public abstract class UserModel {
         }
     }
 
-    public boolean Login (String email, String password){
+    public String Login (){
+        String selectQuery = "SELECT role from users WHERE email = ? AND password = ?";
 
+        try (Connection connection = DatabaseConnection.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
 
-        return true;
+            // Değerleri ayarla
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            // Sorguyu çalıştır
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                role = resultSet.getString("role"); // Rol bilgisini al
+                return role; // Rolü döndür
+            } else {
+                System.out.println("Hatalı e-posta veya şifre.");
+                return null; // Giriş başarısız
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
     public boolean Register(){
