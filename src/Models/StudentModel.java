@@ -13,4 +13,19 @@ public class StudentModel extends UserModel{
     }
 
 
+    public String borrowBook(String bookID){
+        return "d";
+    }
+    public String rating(int rate){
+        return "şl";
+    }
+    public String returnborrowBook(String bookID){
+        return "d";
+    }
+    public String profile(){
+        return "d";
+    }
+    public String updateprofile(){
+        return "d";
+    }
 }
