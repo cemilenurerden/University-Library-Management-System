@@ -4,7 +4,7 @@ public class StudentModel extends UserModel{
 
 
 
-    public StudentModel(String email, String password) {
+    public StudentModel(String email, String password, String libraryId, String firstName, String lastName, String role) {
         super(email, password);
     }
 
