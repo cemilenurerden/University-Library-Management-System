@@ -4,13 +4,16 @@ public class StudentModel extends UserModel implements Observer{
 
 
     public void update(String message){
-
+        System.out.println("bildirim");
     }
-    public StudentModel(String email, String password, String libraryId, String firstName, String lastName, String role) {
+    public StudentModel(String email, String password) {
         super(email, password);
     }
 
     public StudentModel(String email, String password, String LibraryId, String FirstName, String LastName) {
+        super(email, password, LibraryId, FirstName, LastName,"student");
+    }
+    public StudentModel(String email, String password, String LibraryId, String FirstName, String LastName, String role) {
         super(email, password, LibraryId, FirstName, LastName,"student");
     }
 

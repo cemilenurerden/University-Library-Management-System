@@ -5,25 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2485e44-beb7-4faa-aabd-c301b8dd242e" name="Changes" comment="">
-<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/src/Controllers/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/LibrarianController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/AddBookView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/BookListView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/BorrowedBooksView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/DashboardView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/DeleteBookView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/LibrarianView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/LoginView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/MainScreenView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/MenuBarHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/RegisterView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/UserInfoView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/src/Models/AvailableState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Models/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Models/IBookState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Models/LoanedState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Models/LostState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repositories/BorrowRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repositories/IBorrowRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/University-Library-Management-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/University-Library-Management-System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/UserController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/BookModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/StudentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/StudentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/VoidBookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/VoidBookModel.java" afterDir="false" />
->>>>>>> refs/remotes/origin/main
+      <change beforePath="$PROJECT_DIR$/src/Models/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,48 +58,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-<<<<<<< HEAD
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/esman/Downloads/OneDrive_1_04.12.2024&quot;,
-=======
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/cemilenur/Downloads/mysql-connector-j-9.1.0.jar&quot;,
->>>>>>> refs/remotes/origin/main
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/esman/OneDrive/Documents/3.sınıf Ders Dökümanları/Yazılım Mimarisi ve Tasarımı/University-Library-Management-System/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/cemilenur/Downloads/mysql-connector-j-9.1.0.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/esman/OneDrive/Documents/3.sınıf Ders Dökümanları/Yazılım Mimarisi ve Tasarımı/University-Library-Management-System/src/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "spring",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\esman\OneDrive\Documents\3.sınıf Ders Dökümanları\Yazılım Mimarisi ve Tasarımı\University-Library-Management-System" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="University-Library-Management-System" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -121,5 +107,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

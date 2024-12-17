@@ -2,12 +2,21 @@ package Repositories;
 
 import Models.BookModel;
 import Models.DatabaseConnection;
+import Models.Observer;
+import Models.Subject;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
-public class BookRepository implements IBookRepository{
+public class BookRepository implements IBookRepository, Subject {
+    private List<Observer> observers;
+    public BookRepository(){}
+    public BookRepository(List<Observer> observers){
+        this.observers = observers;
+    }
+
 
     // tüm veri tabanı işlevleri burada olucak
     public String updateBook(BookModel book, String id) {
@@ -49,6 +58,7 @@ public class BookRepository implements IBookRepository{
             preparedStatement.setString(7, book.status);
 
             int rowsAffected = preparedStatement.executeUpdate();
+            notifyObserver("yeni kitap" + book.title);
             return rowsAffected > 0 ? "Kitap başarıyla eklendi." : "Kitap eklenirken hata oluştu.";
 
         } catch (Exception e) {
