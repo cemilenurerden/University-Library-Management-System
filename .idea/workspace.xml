@@ -5,7 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2485e44-beb7-4faa-aabd-c301b8dd242e" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/Models/AvailableState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/IBookState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/LoanedState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/LostState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repositories/BorrowRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repositories/IBorrowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/University-Library-Management-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/University-Library-Management-System.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/BookModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/StudentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/StudentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/VoidBookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/VoidBookModel.java" afterDir="false" />
+>>>>>>> refs/remotes/origin/main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +62,11 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+<<<<<<< HEAD
     &quot;last_opened_file_path&quot;: &quot;C:/Users/esman/Downloads/OneDrive_1_04.12.2024&quot;,
+=======
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cemilenur/Downloads/mysql-connector-j-9.1.0.jar&quot;,
+>>>>>>> refs/remotes/origin/main
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,

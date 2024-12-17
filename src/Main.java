@@ -18,7 +18,9 @@ public class Main {
         BookModel ebook = eBookFactory.createBook("deneme","deneme",1,"mkckkd",new Date(),"lkdfk","On shelf");
         String add = bookRepository.insertBook(ebook);
 
-            System.out.println(add);
+        System.out.println(add);
+        BorrowRepository re = new BorrowRepository();
+        re.getBorrowedBooksByUser("1");
 
 
     }

@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class UserModel {
+public abstract class UserModel  {
     private String email;
     private String password;
     private String LibraryId;
@@ -21,8 +21,7 @@ public abstract class UserModel {
     private String role;
 
 
-
-    public UserModel(String email, String password)
+ public UserModel(String email, String password)
     {
         this.email = email;
         this.password = HashedPassword(password);

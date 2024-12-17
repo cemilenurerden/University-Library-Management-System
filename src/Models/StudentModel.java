@@ -1,10 +1,12 @@
 package Models;
 
-public class StudentModel extends UserModel{
+public class StudentModel extends UserModel implements Observer{
 
 
+    public void update(String message){
 
-    public StudentModel(String email, String password) {
+    }
+    public StudentModel(String email, String password, String libraryId, String firstName, String lastName, String role) {
         super(email, password);
     }
 
