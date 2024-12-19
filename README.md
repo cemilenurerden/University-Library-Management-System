@@ -97,62 +97,62 @@ This is a Java-based **Library Management System** designed to handle core funct
 1. Create a database named `librarysystem`.
 2. Run the following SQL scripts to create the required tables:
    ```sql
-  CREATE TABLE IF NOT EXISTS users (
-  id INT NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(100) NOT NULL,
-  last_name VARCHAR(100)  NOT NULL,
-  library_id VARCHAR(10) NOT NULL,
-  email VARCHAR(100) NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  role ENUM('student','librarian') NOT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (id),
-  UNIQUE KEY library_id (library_id),
-  UNIQUE KEY email (email)
-);
+      CREATE TABLE IF NOT EXISTS users (
+        id INT NOT NULL AUTO_INCREMENT,
+        first_name VARCHAR(100) NOT NULL,
+        last_name VARCHAR(100)  NOT NULL,
+        library_id VARCHAR(10) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        role ENUM('student','librarian') NOT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id),
+        UNIQUE KEY library_id (library_id),
+        UNIQUE KEY email (email)
+      );
 
-CREATE TABLE IF NOT EXISTS books (
-  id INT NOT NULL AUTO_INCREMENT,
-  title VARCHAR(255)  NOT NULL,
-  author VARCHAR(255)  NOT NULL,
-  genre_id INT DEFAULT NULL,
-  description TEXT ,
-  publication_year DATE DEFAULT NULL,
-  category_id INT DEFAULT NULL,
-  available_copies INT DEFAULT '0',
-  file_url VARCHAR(255)  DEFAULT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  status ENUM('Available','Borrowed','Lost')  DEFAULT 'Available',
-  PRIMARY KEY (id),
-  KEY genre_id (genre_id),
-  KEY category_id (category_id)
-);
+      CREATE TABLE IF NOT EXISTS books (
+        id INT NOT NULL AUTO_INCREMENT,
+        title VARCHAR(255)  NOT NULL,
+        author VARCHAR(255)  NOT NULL,
+        genre_id INT DEFAULT NULL,
+        description TEXT ,
+        publication_year DATE DEFAULT NULL,
+        category_id INT DEFAULT NULL,
+        available_copies INT DEFAULT '0',
+        file_url VARCHAR(255)  DEFAULT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        status ENUM('Available','Borrowed','Lost')  DEFAULT 'Available',
+        PRIMARY KEY (id),
+        KEY genre_id (genre_id),
+        KEY category_id (category_id)
+      );
 
-CREATE TABLE IF NOT EXISTS borrow_records (
-  id INT NOT NULL AUTO_INCREMENT,
-  user_id INT NOT NULL,
-  book_id INT NOT NULL,
-  borrow_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  return_date DATE DEFAULT NULL,
-  status ENUM('borrowed','returned')  DEFAULT 'borrowed',
-  PRIMARY KEY (id),
-  KEY user_id (user_id),
-  KEY book_id (book_id)
-); 
+      CREATE TABLE IF NOT EXISTS borrow_records (
+        id INT NOT NULL AUTO_INCREMENT,
+        user_id INT NOT NULL,
+        book_id INT NOT NULL,
+        borrow_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        return_date DATE DEFAULT NULL,
+        status ENUM('borrowed','returned')  DEFAULT 'borrowed',
+        PRIMARY KEY (id),
+        KEY user_id (user_id),
+        KEY book_id (book_id)
+      ); 
 
-CREATE TABLE IF NOT EXISTS categories (
-  id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(100)  NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY name (name)
-);
+      CREATE TABLE IF NOT EXISTS categories (
+        id INT NOT NULL AUTO_INCREMENT,
+        name VARCHAR(100)  NOT NULL,
+        PRIMARY KEY (id),
+        UNIQUE KEY name (name)
+      );
 
-CREATE TABLE IF NOT EXISTS genres (
-  id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(100)   NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY name (name)
-);
+      CREATE TABLE IF NOT EXISTS genres (
+        id INT NOT NULL AUTO_INCREMENT,
+        name VARCHAR(100)   NOT NULL,
+        PRIMARY KEY (id),
+        UNIQUE KEY name (name)
+      );
   
    ```
 
