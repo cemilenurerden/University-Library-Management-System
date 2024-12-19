@@ -22,36 +22,23 @@ public abstract class UserModel  {
     private String LastName;
     private String role;
 
+// kullanılmımışsa sil
 
  public UserModel(String email, String password)
     {
         this.email = email;
-        this.password = HashedPassword(password);
+        this.password = password;
 
     }
     public UserModel(String email, String password, String LibraryId,String FirstName, String LastName, String role)
     {
         this.email = email;
-        this.password = HashedPassword(password);
+        this.password = password;
         this.LibraryId = LibraryId;
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.role = role;
     }
-
-    public String HashedPassword(String password){
-        try {
-            var messageDigest = MessageDigest.getInstance("SHA-256");
-            var hash = messageDigest.digest(password.getBytes(StandardCharsets.UTF_8));
-
-            return String.format("%064x", new BigInteger(1, hash));
-        }
-        catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
 
 
     public String getEmail() {

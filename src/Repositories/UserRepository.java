@@ -1,9 +1,14 @@
 package Repositories;
 
 import Models.DatabaseConnection;
+import Models.LibrarianModel;
 import Models.StudentModel;
 import Models.UserModel;
 
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,17 +30,37 @@ public class UserRepository implements IUserRepository{
         System.out.println(bookRepository.insertBook(book));
     }
 }*/
-    public List<StudentModel> getAllStudednts(){
+    public String HashedPassword(String password){
+    try {
+        var messageDigest = MessageDigest.getInstance("SHA-256");
+        var hash = messageDigest.digest(password.getBytes(StandardCharsets.UTF_8));
+
+        return String.format("%064x", new BigInteger(1, hash));
+    }
+    catch (NoSuchAlgorithmException e) {
+        e.printStackTrace();
+        return null;
+    }
+}
+
+    public List<StudentModel> getAllStudents(){ // bu profilde kullanılmak yerine sadece bildirim için ayarlanabilir
         List<StudentModel> students = new ArrayList<>();
-        String query = "SELECT email, first_name FROM users WHERE role = 'student'";
+        String query = "SELECT first_name, last_name,library_id,email, password  FROM users WHERE role = 'student'";
         try (Connection connection = DatabaseConnection.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                String email = resultSet.getString("email");
                 String firstName = resultSet.getString("first_name");
-                students.add(new StudentModel(email, firstName));
+                String lastName = resultSet.getString("last_name");
+                String libraryId = resultSet.getString("library_id");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+
+
+
+                // StudentModel nesnesi oluşturup listeye ekle
+                students.add(new StudentModel(email, password,libraryId, firstName, lastName));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,36 +68,64 @@ public class UserRepository implements IUserRepository{
         return students;
 
     }
-    public String getUserRoleByEmailandPassword(String email, String password){
-        String selectQuery = "SELECT role from users WHERE email = ? AND password = ?";
+    public UserModel getUserByEmailandPassword(String email, String password) {
+        password = HashedPassword(password); // Şifreyi hashle
+        String selectQuery = "SELECT first_name, last_name, library_id, role FROM users WHERE email = ? AND password = ?";
 
         try (Connection connection = DatabaseConnection.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
 
-            // Değerleri ayarla
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
-            // Sorguyu çalıştır
             ResultSet resultSet = preparedStatement.executeQuery();
+
             if (resultSet.next()) {
-                String role = resultSet.getString("role"); // Rol bilgisini al
-                return role; // Rolü döndür
+                String role = resultSet.getString("role");
+                String libraryId = resultSet.getString("library_id");
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+
+                if ("student".equalsIgnoreCase(role)) {
+                    return new StudentModel(email, password, libraryId, firstName, lastName);
+                } else if ("librarian".equalsIgnoreCase(role)) {
+                    return new LibrarianModel(email, password, libraryId, firstName, lastName);
+                }
             } else {
                 System.out.println("Hatalı e-posta veya şifre.");
-                return null; // Giriş başarısız
+                return null;
             }
-            //   if ("student".equalsIgnoreCase(role)) {
-            //                    return new StudentModel(userEmail, firstName);
-            //                } else if ("librarian".equalsIgnoreCase(role)) {
-            //                    return new LibrarianModel(userEmail, firstName);
-            //                }  bununla istediğim tipte kullanıcı için nesne oluşturmuş oluyorum.
-
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
+        return null;
+    }
+    public String getUserIdByEmail(String email) {
+        String query = "SELECT id FROM users WHERE email = ?";
+        String userId = null;
+
+        try (Connection connection = DatabaseConnection.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                userId = resultSet.getString("id");
+            } else {
+                System.out.println("Kullanıcı bulunamadı: " + email);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Kullanıcı ID'si getirilirken hata oluştu: " + e.getMessage());
+        }
+
+        return userId;
     }
     public boolean insertUser(UserModel user){
+        String password = HashedPassword(user.getPassword());
+
         String insertQuery = "INSERT INTO users (first_name, last_name,library_id, email, password, role) VALUES (?, ?, ?, ?,?,?)";
 
         try (Connection connection = DatabaseConnection.getInstance().getConnection();
@@ -83,7 +136,7 @@ public class UserRepository implements IUserRepository{
             preparedStatement.setString(2, user.getLastName());
             preparedStatement.setString(3, user.getLibraryId());
             preparedStatement.setString(4, user.getEmail());
-            preparedStatement.setString(5, user.getPassword());
+            preparedStatement.setString(5, password);
             preparedStatement.setString(6, user.getRole());
 
             // Sorguyu çalıştır
@@ -94,37 +147,7 @@ public class UserRepository implements IUserRepository{
             return false;
         }
     }
-// bu kısımı kullanıcı bilgilerini getir diye yap
 
-//    public UserModel getAllUsers(){
-//        String selectQuery = "SELECT * from users ";
-//
-//        try (Connection connection = DatabaseConnection.getInstance().getConnection();
-//             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
-//
-//            // Değerleri ayarla
-//            preparedStatement.setString(1, email);
-//            preparedStatement.setString(2, password);
-//            // Sorguyu çalıştır
-//            ResultSet resultSet = preparedStatement.executeQuery();
-//            if (resultSet.next()) {
-//                String role = resultSet.getString("role"); // Rol bilgisini al
-//                return role; // Rolü döndür
-//            } else {
-//                System.out.println("Hatalı e-posta veya şifre.");
-//                return null; // Giriş başarısız
-//            }
-//            //   if ("student".equalsIgnoreCase(role)) {
-//            //                    return new StudentModel(userEmail, firstName);
-//            //                } else if ("librarian".equalsIgnoreCase(role)) {
-//            //                    return new LibrarianModel(userEmail, firstName);
-//            //                }  bununla istediğim tipte kullanıcı için nesne oluşturmuş oluyorum.
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
     public boolean deleteUser(String email) {
         String query = "DELETE FROM users WHERE email = ?";
         try (Connection connection = DatabaseConnection.getInstance().getConnection();

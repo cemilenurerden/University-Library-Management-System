@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface IBorrowRepository {
-    String borrowBook(String userId, String bookId, Date borrowDate, Date returnDate);
+    String borrowBook(int userId, int bookId);
 
     String returnBook(String borrowId);
 

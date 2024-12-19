@@ -1,10 +1,13 @@
-import Views.DashboardView;
-import Views.LibrarianView;
-import Views.MainScreenView;
+import Models.StudentModel;
+import Models.UserModel;
+import Repositories.UserRepository;
+import Controllers.UserController;
+import Views.*;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Ana sayfayı başlat
-        new LibrarianView().setVisible(true);
+        SwingUtilities.invokeLater(() -> new LoginView() .setVisible(true));
     }
 }

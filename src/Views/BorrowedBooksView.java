@@ -1,44 +1,95 @@
 package Views;
 
+import Controllers.BorrowController;
+import Models.BorrowedBookModel;
+
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.util.List;
 
 public class BorrowedBooksView extends JFrame {
+
+    private BorrowController borrowController;
+
     public BorrowedBooksView() {
-        // Pencere ayarları
+        borrowController = new BorrowController();
+
+        // Pencere Ayarları
         setTitle("Ödünç Alınan Kitaplar");
-        setSize(500, 400);
+        setSize(800, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Ana panel
+        // Ana Panel
         JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBackground(Color.WHITE);
 
-        // Tablo modeli
-        String[] columnNames = {"Kitap ID", "Kitap Adı", "Ödünç Alan Kullanıcı", "Tarih"};
-        Object[][] data = {
-                {"1", "Design Patterns", "Ali Yılmaz", "2024-05-10"},
-                {"2", "Refactoring", "Ayşe Kara", "2024-05-15"}
-        };
+        // Header Panel
+        JPanel headerPanel = new JPanel(new BorderLayout());
+        headerPanel.setBackground(new Color(52, 152, 219));
+        headerPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-        JTable borrowedTable = new JTable(data, columnNames);
-        JScrollPane scrollPane = new JScrollPane(borrowedTable);
+        JLabel titleLabel = new JLabel("Ödünç Alınan Kitaplar", SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setForeground(Color.WHITE);
 
-        // Başlık
-        JLabel headerLabel = new JLabel("Ödünç Alınan Kitaplar", SwingConstants.CENTER);
-        headerLabel.setFont(new Font("Arial", Font.BOLD, 18));
-        mainPanel.add(headerLabel, BorderLayout.NORTH);
+        JButton backButton = createStyledButton("Geri Dön");
+        JButton logoutButton = createStyledButton("Çıkış");
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.setOpaque(false);
+        buttonPanel.add(backButton);
+        buttonPanel.add(logoutButton);
+
+        headerPanel.add(titleLabel, BorderLayout.CENTER);
+        headerPanel.add(buttonPanel, BorderLayout.EAST);
+
+        // Tablo Verileri
+        List<BorrowedBookModel> borrowedBooks = borrowController.getAllBorrowedBooks();
+        String[] columnNames = {"Kitap ID", "Kitap Adı", "Yazar", "Ödünç Alan", "Tarih"};
+        Object[][] data = new Object[borrowedBooks.size()][5];
+
+        for (int i = 0; i < borrowedBooks.size(); i++) {
+            BorrowedBookModel book = borrowedBooks.get(i);
+            data[i][0] = book.getBookId();
+            data[i][1] = book.getTitle();
+            data[i][2] = book.getAuthor();
+            data[i][3] = book.getBorrowedBy();
+            data[i][4] = book.getBorrowDate();
+        }
+
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        // Ana Paneli Birleştir
+        mainPanel.add(headerPanel, BorderLayout.NORTH);
         mainPanel.add(scrollPane, BorderLayout.CENTER);
-
-        // Geri butonu
-        JButton backButton = new JButton("Geri Dön");
-        mainPanel.add(backButton, BorderLayout.SOUTH);
-
         add(mainPanel);
 
+        // Geri Dön Butonu
         backButton.addActionListener(e -> {
             new LibrarianView().setVisible(true);
             dispose();
         });
+
+        // Çıkış Butonu
+        logoutButton.addActionListener(e -> {
+            int result = JOptionPane.showConfirmDialog(this, "Çıkış yapmak istediğinizden emin misiniz?", "Çıkış", JOptionPane.YES_NO_OPTION);
+            if (result == JOptionPane.YES_OPTION) {
+                new MainScreenView().setVisible(true);
+                dispose();
+            }
+        });
+    }
+
+    private JButton createStyledButton(String text) {
+        JButton button = new JButton(text);
+        button.setFocusPainted(false);
+        button.setBackground(new Color(41, 128, 185));
+        button.setForeground(Color.WHITE);
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        return button;
     }
 }

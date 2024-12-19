@@ -5,28 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2485e44-beb7-4faa-aabd-c301b8dd242e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controllers/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/LibrarianController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/StudentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Models/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/AddBookView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/BookListView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/BorrowedBooksView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/DashboardView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/DeleteBookView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/LibrarianView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/LoginView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/MainScreenView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/MenuBarHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/RegisterView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/UserInfoView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/BorrowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/BorrowedBookModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/NotificationManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/NotificationsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/BookModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/StudentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/StudentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Subject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/UserModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/BorrowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/BorrowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/IBookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/IBookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/IBorrowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/IBorrowRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/AddBookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/AddBookView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/BookListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/BookListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/BorrowedBooksView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/BorrowedBooksView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/DashboardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/DashboardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/DeleteBookView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/LibrarianView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/LibrarianView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/MainScreenView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/MainScreenView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/MenuBarHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/RegisterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/UserInfoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserInfoView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +52,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -60,7 +71,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.DashboardView.executor": "Run",
+    "Application.LibrarianView.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.NotificationsView.executor": "Run",
+    "Application.UserInfoView.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -102,6 +117,9 @@
       <workItem from="1733573239315" duration="286000" />
       <workItem from="1733765921335" duration="421000" />
       <workItem from="1733826092399" duration="670000" />
+      <workItem from="1734508424677" duration="649000" />
+      <workItem from="1734510589296" duration="4976000" />
+      <workItem from="1734537007244" duration="26061000" />
     </task>
     <servers />
   </component>

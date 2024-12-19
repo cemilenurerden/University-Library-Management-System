@@ -16,6 +16,12 @@ public  abstract class BookModel
    public String status;
    private IBookState state;
 
+   public BookModel(String id, String title, String author){
+      this.id = id ;
+      this.title =title;
+      this.author = author;
+
+   }
 
    public BookModel(String title, String author, int genre_id, String description, Date publication_year, int category_id, String file_url, String status) {
       this.title = title;
@@ -60,6 +66,78 @@ public  abstract class BookModel
 
    public void performStateAction() {
       state.handleState(this);
+   }
+
+   public String getTitle() {
+      return title;
+   }
+
+   public void setTitle(String title) {
+      this.title = title;
+   }
+
+   public String getAuthor() {
+      return author;
+   }
+
+   public void setAuthor(String author) {
+      this.author = author;
+   }
+
+   public int getGenre_id() {
+      return genre_id;
+   }
+
+   public void setGenre_id(int genre_id) {
+      this.genre_id = genre_id;
+   }
+
+   public String getDescription() {
+      return description;
+   }
+
+   public void setDescription(String description) {
+      this.description = description;
+   }
+
+   public Date getPublication_year() {
+      return publication_year;
+   }
+
+   public void setPublication_year(Date publication_year) {
+      this.publication_year = publication_year;
+   }
+
+   public int getCategory_id() {
+      return category_id;
+   }
+
+   public void setCategory_id(int category_id) {
+      this.category_id = category_id;
+   }
+
+   public int getAvailable_copies() {
+      return available_copies;
+   }
+
+   public void setAvailable_copies(int available_copies) {
+      this.available_copies = available_copies;
+   }
+
+   public String getFile_url() {
+      return file_url;
+   }
+
+   public void setFile_url(String file_url) {
+      this.file_url = file_url;
+   }
+
+   public String getStatus() {
+      return status;
+   }
+
+   public void setStatus(String status) {
+      this.status = status;
    }
 }
 

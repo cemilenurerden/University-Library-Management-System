@@ -1,15 +1,27 @@
 package Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudentModel extends UserModel implements Observer{
 
+    private List<String> notifications = new ArrayList<>();
 
-    public void update(String message){
-        System.out.println("bildirim");
-    }
     public StudentModel(String email, String password) {
         super(email, password);
+        this.notifications = new ArrayList<>();
+    }
+    public List<String> getNotifications() {
+        return notifications;
     }
 
+    public void addNotification(String notification) {
+        getNotifications().add(notification);
+        System.out.println("Bildirim eklendi: " + notification); // Debug mesajı
+
+    }
+    public void update(String message){
+        addNotification(message);    }
     public StudentModel(String email, String password, String LibraryId, String FirstName, String LastName) {
         super(email, password, LibraryId, FirstName, LastName,"student");
     }
@@ -18,19 +30,5 @@ public class StudentModel extends UserModel implements Observer{
     }
 
 
-    public String borrowBook(String bookID){
-        return "d";
-    }
-    public String rating(int rate){
-        return "şl";
-    }
-    public String returnborrowBook(String bookID){
-        return "d";
-    }
-    public String profile(){
-        return "d";
-    }
-    public String updateprofile(){
-        return "d";
-    }
+
 }

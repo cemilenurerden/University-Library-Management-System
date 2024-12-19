@@ -1,78 +1,156 @@
 package Views;
 
+import Controllers.BookController;
+import Controllers.BorrowController;
+import Models.BookModel;
+import Models.StudentModel;
+import Models.UserModel;
+
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.List;
 
 public class UserInfoView extends JFrame {
 
-    public UserInfoView(String userName, String userEmail) {
-        // Pencere ayarları
+    private BorrowController borrowController = new BorrowController();
+    private UserModel user;
+
+    public UserInfoView(UserModel user) {
+        this.user = user;
+        // Pencere Ayarları
         setTitle("Kullanıcı Bilgileri ve Ödünç Alınan Kitaplar");
-        setSize(600, 400);
+        setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         // Ana Panel
         JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBackground(new Color(245, 245, 245));
 
-        // Kullanıcı Bilgileri Paneli
-        JPanel userInfoPanel = new JPanel(new GridLayout(2, 1, 10, 10));
-        JLabel nameLabel = new JLabel("Ad Soyad: " + userName, SwingConstants.LEFT);
-        JLabel emailLabel = new JLabel("Email: " + userEmail, SwingConstants.LEFT);
-        nameLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        emailLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        // Header Paneli
+        JPanel headerPanel = new JPanel(new BorderLayout());
+        headerPanel.setBackground(new Color(52, 152, 219));
+        headerPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        userInfoPanel.add(nameLabel);
-        userInfoPanel.add(emailLabel);
+        JLabel titleLabel = new JLabel("Kullanıcı Bilgileri", SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setForeground(Color.WHITE);
 
-        // Ödünç Alınan Kitaplar Tablosu
-        String[] columnNames = {"Kitap Adı", "Yazar", "Tarih"};
-        Object[][] data = {
-                {"Design Patterns", "Erich Gamma", "2024-06-01"},
-                {"Clean Code", "Robert C. Martin", "2024-05-20"},
-                {"Refactoring", "Martin Fowler", "2024-05-25"}
-        };
-
-        DefaultTableModel tableModel = new DefaultTableModel(data, columnNames);
-        JTable bookTable = new JTable(tableModel);
-        JScrollPane tableScrollPane = new JScrollPane(bookTable);
-
-        // Buton Paneli
+        // Header Butonları
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        JButton backButton = new JButton("Geri Dön");
-        JButton logoutButton = new JButton("Çıkış Yap");
+        buttonPanel.setOpaque(false);
+
+        JButton backButton = new JButton("Geri");
+        JButton profileButton = new JButton("Profilim");
+        JButton logoutButton = new JButton("Çıkış");
+
+        styleButton(backButton);
+        styleButton(profileButton);
+        styleButton(logoutButton);
 
         buttonPanel.add(backButton);
+        buttonPanel.add(profileButton);
         buttonPanel.add(logoutButton);
 
-        // Tüm bileşenleri ana panele ekle
-        mainPanel.add(userInfoPanel, BorderLayout.NORTH);
-        mainPanel.add(tableScrollPane, BorderLayout.CENTER);
-        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+        headerPanel.add(titleLabel, BorderLayout.CENTER);
+        headerPanel.add(buttonPanel, BorderLayout.EAST);
+
+        // Kullanıcı Bilgileri Paneli
+        JPanel userInfoPanel = new JPanel(new GridLayout(4, 1, 10, 10));
+        userInfoPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        userInfoPanel.setBackground(Color.WHITE);
+
+        JLabel idLabel = new JLabel("Kütüphane ID: " + user.getLibraryId());
+        JLabel nameLabel = new JLabel("Ad Soyad: " + user.getFirstName() + " " + user.getLastName());
+        JLabel emailLabel = new JLabel("Email: " + user.getEmail());
+        JLabel roleLabel = new JLabel("Rol: " + user.getRole());
+
+        styleLabel(idLabel);
+        styleLabel(nameLabel);
+        styleLabel(emailLabel);
+        styleLabel(roleLabel);
+
+        userInfoPanel.add(idLabel);
+        userInfoPanel.add(nameLabel);
+        userInfoPanel.add(emailLabel);
+        userInfoPanel.add(roleLabel);
+
+        // Kitap Listeleme Paneli
+        JPanel bookPanel = new JPanel();
+        bookPanel.setLayout(new BoxLayout(bookPanel, BoxLayout.Y_AXIS));
+        bookPanel.setBorder(BorderFactory.createTitledBorder("Ödünç Alınan Kitaplar"));
+
+        // Dinamik Kitap Verilerini Çek
+        List<BookModel> borrowedBooks = borrowController.getUserBorrowedBooks(user.getEmail());
+
+        for (BookModel book : borrowedBooks) {
+            JPanel bookItem = createBookItem(book.title, book.author, book.description);
+            bookPanel.add(bookItem);
+        }
+
+        JScrollPane bookScrollPane = new JScrollPane(bookPanel);
+        bookScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        // Ana Paneli Birleştir
+        mainPanel.add(headerPanel, BorderLayout.NORTH);
+        mainPanel.add(userInfoPanel, BorderLayout.CENTER);
+        mainPanel.add(bookScrollPane, BorderLayout.SOUTH);
 
         add(mainPanel);
 
-        // Butonlara ActionListener ekleme
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new DashboardView().setVisible(true); // Ana sayfaya geri dön
-                dispose();
-            }
+        // Buton İşlevleri
+        backButton.addActionListener(e -> {
+            new DashboardView(user).setVisible(true);
+            dispose();
         });
 
-        logoutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int result = JOptionPane.showConfirmDialog(null, "Çıkış yapmak istediğinize emin misiniz?", "Çıkış Yap", JOptionPane.YES_NO_OPTION);
-                if (result == JOptionPane.YES_OPTION) {
-                    new MainScreenView().setVisible(true); // Ana ekrana dön
-                    dispose();
-                }
+        profileButton.addActionListener(e -> {
+            JOptionPane.showMessageDialog(this, "Zaten bu sayfadasınız.", "Bilgi", JOptionPane.INFORMATION_MESSAGE);
+        });
+
+        logoutButton.addActionListener(e -> {
+            int result = JOptionPane.showConfirmDialog(this, "Çıkış yapmak istediğinize emin misiniz?", "Çıkış Yap", JOptionPane.YES_NO_OPTION);
+            if (result == JOptionPane.YES_OPTION) {
+                dispose();
+                new MainScreenView().setVisible(true);
             }
         });
+    }
+
+    // Kitap Kartı Oluşturma
+    private JPanel createBookItem(String bookName, String author, String date) {
+        JPanel bookItem = new JPanel(new BorderLayout());
+        bookItem.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        bookItem.setBackground(Color.WHITE);
+
+        JLabel bookInfo = new JLabel("<html><b>" + bookName + "</b> - " + author + "<br>Ödünç Alma Tarihi: " + date + "</html>");
+        bookInfo.setFont(new Font("Arial", Font.PLAIN, 14));
+
+        JButton returnButton = new JButton("Geri Ver");
+        styleButton(returnButton);
+
+        // Geri Ver Butonu İşlevi
+        returnButton.addActionListener(e -> {
+            JOptionPane.showMessageDialog(this, bookName + " geri verildi!");
+            borrowController.returnBorrowedBook(bookName);
+            bookItem.setVisible(false);
+        });
+
+        bookItem.add(bookInfo, BorderLayout.CENTER);
+        bookItem.add(returnButton, BorderLayout.EAST);
+
+        return bookItem;
+    }
+
+    private void styleButton(JButton button) {
+        button.setFocusPainted(false);
+        button.setBackground(new Color(41, 128, 185));
+        button.setForeground(Color.WHITE);
+        button.setFont(new Font("Arial", Font.PLAIN, 14));
+    }
+
+    private void styleLabel(JLabel label) {
+        label.setFont(new Font("Arial", Font.PLAIN, 14));
+        label.setForeground(new Color(44, 62, 80));
     }
 }
