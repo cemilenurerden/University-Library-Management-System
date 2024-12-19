@@ -97,7 +97,7 @@ This is a Java-based **Library Management System** designed to handle core funct
 1. Create a database named `librarysystem`.
 2. Run the following SQL scripts to create the required tables:
    ```sql
-      CREATE TABLE IF NOT EXISTS users (
+      CREATE TABLE  users (
         id INT NOT NULL AUTO_INCREMENT,
         first_name VARCHAR(100) NOT NULL,
         last_name VARCHAR(100)  NOT NULL,
@@ -111,7 +111,7 @@ This is a Java-based **Library Management System** designed to handle core funct
         UNIQUE KEY email (email)
       );
 
-      CREATE TABLE IF NOT EXISTS books (
+      CREATE TABLE  books (
         id INT NOT NULL AUTO_INCREMENT,
         title VARCHAR(255)  NOT NULL,
         author VARCHAR(255)  NOT NULL,
@@ -128,7 +128,7 @@ This is a Java-based **Library Management System** designed to handle core funct
         KEY category_id (category_id)
       );
 
-      CREATE TABLE IF NOT EXISTS borrow_records (
+      CREATE TABLE borrow_records (
         id INT NOT NULL AUTO_INCREMENT,
         user_id INT NOT NULL,
         book_id INT NOT NULL,
@@ -140,14 +140,14 @@ This is a Java-based **Library Management System** designed to handle core funct
         KEY book_id (book_id)
       ); 
 
-      CREATE TABLE IF NOT EXISTS categories (
+      CREATE TABLE  categories (
         id INT NOT NULL AUTO_INCREMENT,
         name VARCHAR(100)  NOT NULL,
         PRIMARY KEY (id),
         UNIQUE KEY name (name)
       );
 
-      CREATE TABLE IF NOT EXISTS genres (
+      CREATE TABLE  genres (
         id INT NOT NULL AUTO_INCREMENT,
         name VARCHAR(100)   NOT NULL,
         PRIMARY KEY (id),
