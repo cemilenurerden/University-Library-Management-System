@@ -73,7 +73,7 @@ public class LoginView extends JFrame {
 
                         }
                         else{
-                            new LibrarianView().setVisible(true);
+                            new LibrarianView(user.getRole()).setVisible(true);
                             dispose();
                         }
             } else {

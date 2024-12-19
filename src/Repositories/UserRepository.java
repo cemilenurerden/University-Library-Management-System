@@ -16,20 +16,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepository implements IUserRepository{
-// kontroller içinde observeer kullanımı şu şekilde
-    /*public class LibraryController {
-    private UserRepository userRepository = new UserRepository();
+public class UserRepository {
 
-    public void addNewBook(BookModel book) {
-        // Tüm öğrencileri observer listesine ekle
-        List<StudentModel> allStudents = userRepository.getAllStudents();
-        BookRepository bookRepository = new BookRepository((List<Observer>) (List<?>) allStudents);
-
-        // Kitap ekleme işlemi
-        System.out.println(bookRepository.insertBook(book));
-    }
-}*/
     public String HashedPassword(String password){
     try {
         var messageDigest = MessageDigest.getInstance("SHA-256");

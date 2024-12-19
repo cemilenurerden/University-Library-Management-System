@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 public class LibrarianView extends JFrame {
 
-    public LibrarianView() {
+    public LibrarianView(String role) {
         // Pencere Ayarları
         setTitle("Kütüphaneci Ana Sayfası");
         setSize(500, 400);
@@ -49,7 +49,7 @@ public class LibrarianView extends JFrame {
 
         // ActionListener'lar
         addBookButton.addActionListener(e -> {
-            new AddBookView().setVisible(true);
+            new AddBookView(role).setVisible(true);
             dispose();
         });
 
@@ -61,7 +61,7 @@ public class LibrarianView extends JFrame {
         });
 
         viewBorrowedBooksButton.addActionListener(e -> {
-            new BorrowedBooksView().setVisible(true);
+            new BorrowedBooksView(role).setVisible(true);
             dispose();
         });
 
@@ -87,6 +87,7 @@ public class LibrarianView extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new LibrarianView().setVisible(true));
+        SwingUtilities.invokeLater(() -> new LibrarianView("librarian").setVisible(true)); // Kullanıcı rolü burada geçiliyor
     }
 }
+

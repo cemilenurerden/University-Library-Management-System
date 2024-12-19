@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class BorrowRepository implements IBorrowRepository {
+public class BorrowRepository {
 
-    @Override
+
     public String borrowBook(int userId, int bookId) {
       //  BookModel book = getBookIdByTitle
         String query = "INSERT INTO borrow_records  (user_id, book_id, status) VALUES (?, ?,  'Borrowed')";
@@ -68,7 +68,7 @@ public class BorrowRepository implements IBorrowRepository {
     }
 
 
-    @Override
+
     public String returnBook(String name) {
         int id = getIdByName(name);
         System.out.println("Kitap ID: " + id); // ID'nin doğru geldiğini kontrol et.
@@ -88,7 +88,7 @@ public class BorrowRepository implements IBorrowRepository {
         }
     }
 
-    @Override
+
     public List<BookModel> getBorrowedBooksByUser(String userId) {
         String query = "SELECT books.id, books.title, books.author, books.genre_id, books.description, books.publication_year, books.category_id, books.file_url " +
                 "FROM books " +
@@ -151,7 +151,6 @@ public class BorrowRepository implements IBorrowRepository {
 
 
 
-    @Override
     public boolean isBookBorrowed(String bookId) {
         String query = "SELECT COUNT(*) AS count FROM borrow_records  WHERE book_id = ? AND status = 'Borrowed'";
         try (Connection connection = DatabaseConnection.getInstance().getConnection();
@@ -188,7 +187,7 @@ public class BorrowRepository implements IBorrowRepository {
 
         return bookId;
     }
-    @Override
+
     public List<UserModel> getBorrowersByBook(String bookId) {
         String query = "SELECT users.* FROM users INNER JOIN borrow_records  ON users.id = borrows.user_id WHERE borrows.book_id = ? AND borrows.status = 'Borrowed'";
         List<UserModel> borrowers = new ArrayList<>();

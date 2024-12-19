@@ -12,7 +12,7 @@ public class BorrowedBooksView extends JFrame {
 
     private BorrowController borrowController;
 
-    public BorrowedBooksView() {
+    public BorrowedBooksView(String role) {
         borrowController = new BorrowController();
 
         // Pencere Ayarları
@@ -69,7 +69,7 @@ public class BorrowedBooksView extends JFrame {
 
         // Geri Dön Butonu
         backButton.addActionListener(e -> {
-            new LibrarianView().setVisible(true);
+            new LibrarianView(role).setVisible(true);
             dispose();
         });
 

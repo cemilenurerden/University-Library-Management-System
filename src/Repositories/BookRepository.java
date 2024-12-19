@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BookRepository implements IBookRepository, Subject {
+public class BookRepository implements  Subject {
     private UserRepository userRepository = new UserRepository();
 
 

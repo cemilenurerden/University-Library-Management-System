@@ -55,12 +55,18 @@ public class BookListView extends JFrame {
         styleButton(logoutButton);
         styleButton(backButton);
 
-// Butonları ekle
-        buttonPanel.add(backButton);
-        buttonPanel.add(notificationsButton); // Bildirim butonunu ekle
-        buttonPanel.add(profileButton);
-        buttonPanel.add(logoutButton);
+        if(id==-1){
+            buttonPanel.add(backButton);
+            buttonPanel.add(logoutButton);
 
+        }
+        else {
+// Butonları ekle
+            buttonPanel.add(backButton);
+            buttonPanel.add(notificationsButton); // Bildirim butonunu ekle
+            buttonPanel.add(profileButton);
+            buttonPanel.add(logoutButton);
+        }
 // Header Paneli Birleştir
         headerPanel.add(titleLabel, BorderLayout.CENTER);
         headerPanel.add(buttonPanel, BorderLayout.EAST);
@@ -118,12 +124,20 @@ public class BookListView extends JFrame {
                 dispose();
             }
         });
-
+    if(id==-1){
+        backButton.addActionListener(e -> {
+            new LibrarianView("librarian").setVisible(true); // Dashboard sayfasına geri dön
+            dispose();
+        });
+    }
+    else{
         backButton.addActionListener(e -> {
             new DashboardView(user).setVisible(true); // Dashboard sayfasına geri dön
             dispose();
         });
     }
+    }
+
 
     private void styleButton(JButton button) {
         button.setFocusPainted(false);
